@@ -16,7 +16,7 @@ namespace BaiTapNhom_QLBH
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmNhanVien());
+            Application.Run(new FrmNhanVien1());
         }
     }
 }

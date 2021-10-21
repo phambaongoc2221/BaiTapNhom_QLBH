@@ -10,13 +10,12 @@ using System.Windows.Forms;
 
 namespace BaiTapNhom_QLBH
 {
-    public partial class FrmNhanVien : Form
+    public partial class FrmNhanVien1 : Form
     {
-        public FrmNhanVien()
+        public FrmNhanVien1()
         {
             InitializeComponent();
         }
-
         ConnectDB connectDB = new ConnectDB();
 
         DataTable dta = new DataTable();
@@ -24,48 +23,49 @@ namespace BaiTapNhom_QLBH
         private void BANG_NHANVIEN()
         {
             dta = connectDB.Lay_DulieuBang("SELECT * FROM nhanVien");
-            DataGrid_NhanVien.DataSource = dta;
+            DataGrid_NhanVien1.DataSource = dta;
         }
+       
 
         private void HienThiDuLieu()
         {
             BANG_NHANVIEN();
-            /*DataGrid_NhanVien.Columns[0].HeaderText = "Mã Nhân Viên";
-            DataGrid_NhanVien.Columns[1].HeaderText = "Họ Tên Nhân Viên";
-            DataGrid_NhanVien.Columns[2].HeaderText = "Giới tính";
-            DataGrid_NhanVien.Columns[3].HeaderText = "Ngày sinh";
-            DataGrid_NhanVien.Columns[4].HeaderText = "Địa chỉ";
-            DataGrid_NhanVien.Columns[5].HeaderText = "Số điện thoại";
-            DataGrid_NhanVien.Columns[6].HeaderText = "Email";
-            DataGrid_NhanVien.Columns[0].Width = 150;
-            DataGrid_NhanVien.Columns[1].Width = 200;
-            DataGrid_NhanVien.Columns[2].Width = 80;
-            DataGrid_NhanVien.Columns[3].Width = 80;
-            DataGrid_NhanVien.Columns[4].Width = 250;
-            DataGrid_NhanVien.Columns[5].Width = 100;
-            DataGrid_NhanVien.Columns[6].Width = 250;
-            DataGrid_NhanVien.AllowUserToAddRows = false;
-            DataGrid_NhanVien.EditMode = DataGridViewEditMode.EditProgrammatically;*/
-            txtMaNV.DataBindings.Clear();
-            txtMaNV.DataBindings.Add("Text", DataGrid_NhanVien, "manv");
+            DataGrid_NhanVien1.Columns[0].HeaderText = "Mã Nhân Viên";
+            DataGrid_NhanVien1.Columns[1].HeaderText = "Họ Tên Nhân Viên";
+            DataGrid_NhanVien1.Columns[2].HeaderText = "Giới tính";
+            DataGrid_NhanVien1.Columns[3].HeaderText = "Ngày sinh";
+            DataGrid_NhanVien1.Columns[4].HeaderText = "Địa chỉ";
+            DataGrid_NhanVien1.Columns[5].HeaderText = "Số điện thoại";
+            DataGrid_NhanVien1.Columns[6].HeaderText = "Email";
+            DataGrid_NhanVien1.Columns[0].Width = 150;
+            DataGrid_NhanVien1.Columns[1].Width = 200;
+            DataGrid_NhanVien1.Columns[2].Width = 80;
+            DataGrid_NhanVien1.Columns[3].Width = 80;
+            DataGrid_NhanVien1.Columns[4].Width = 250;
+            DataGrid_NhanVien1.Columns[5].Width = 100;
+            DataGrid_NhanVien1.Columns[6].Width = 250;
+            DataGrid_NhanVien1.AllowUserToAddRows = false;
+            DataGrid_NhanVien1.EditMode = DataGridViewEditMode.EditProgrammatically;
+            /*txtMaNV.DataBindings.Clear();
+            txtMaNV.DataBindings.Add("Text", DataGrid_NhanVien1, "manv");
 
             txtTenNV.DataBindings.Clear();
-            txtTenNV.DataBindings.Add("Text", DataGrid_NhanVien, "tennv");
+            txtTenNV.DataBindings.Add("Text", DataGrid_NhanVien1, "tennv");
 
             txtGioiTinh.DataBindings.Clear();
-            txtGioiTinh.DataBindings.Add("Text", DataGrid_NhanVien, "gioitinh");
+            txtGioiTinh.DataBindings.Add("Text", DataGrid_NhanVien1, "gioitinh");
 
             txtNgaySinh.DataBindings.Clear();
-            txtNgaySinh.DataBindings.Add("Text", DataGrid_NhanVien, "ngaysinh");
+            txtNgaySinh.DataBindings.Add("Text", DataGrid_NhanVien1, "ngaysinh");
 
             txtDiaChi.DataBindings.Clear();
-            txtDiaChi.DataBindings.Add("Text", DataGrid_NhanVien, "diachi");
+            txtDiaChi.DataBindings.Add("Text", DataGrid_NhanVien1, "diachi");
 
             txtSdt.DataBindings.Clear();
-            txtSdt.DataBindings.Add("Text", DataGrid_NhanVien, "sdt");
+            txtSdt.DataBindings.Add("Text", DataGrid_NhanVien1, "sdt");
 
             txtEmail.DataBindings.Clear();
-            txtEmail.DataBindings.Add("Text", DataGrid_NhanVien, "email");
+            txtEmail.DataBindings.Add("Text", DataGrid_NhanVien1, "email");*/
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -76,7 +76,7 @@ namespace BaiTapNhom_QLBH
             BANG_NHANVIEN();
         }
 
-        private void FrmNhanVien_Load(object sender, EventArgs e)
+        private void FrmNhanVien1_Load(object sender, EventArgs e)
         {
             HienThiDuLieu();
         }
@@ -89,7 +89,7 @@ namespace BaiTapNhom_QLBH
             BANG_NHANVIEN();
         }
 
-        private void DataGrid_NhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGrid_NhanVien1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             HienThiDuLieu();
         }
@@ -101,16 +101,10 @@ namespace BaiTapNhom_QLBH
             connectDB.ThucThi(sql_Xoa);
             BANG_NHANVIEN();
         }
+
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void FrmNhanVien_Load_1(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'bTN_dotNetDataSet.nhanVien' table. You can move, or remove it, as needed.
-            this.nhanVienTableAdapter.Fill(this.bTN_dotNetDataSet.nhanVien);
-
         }
     }
 }
